@@ -1,0 +1,33 @@
+[build-system]
+requires = ["scikit-build-core>=0.11,<0.12", "nanobind>=2.4,<3"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "carbon-metal"
+version = "0.2.0"
+description = "A clean foundation for a tile-oriented Metal language"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.17,<0.18"]
+
+[tool.scikit-build]
+cmake.build-type = "Release"
+wheel.packages = ["python/carbon"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["tests"]
+python_files = ["language/*.py", "kernels/*.py", "host/*.py"]
+addopts = ["--import-mode=importlib"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+src = ["python", "tests"]
+
+[tool.ruff.lint]
+select = ["E501", "F", "I"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
