@@ -15,9 +15,11 @@ better control of the hardware becomes crucial in maximizing good-put!
 
 It's co-designed with [Swiss](https://github.com/Lazarus-931/swiss) and is inference-first!
 
-This hack asks maybe if model specific vs general inference engine is the wrong debate, maybe it's the
-way we're utilizing the hardware in general. We find that generally in Swiss, this better abstraction allows
-us to maximize efficiency in weird workloads mlx just wasn't designed for!
+This work asks whether model specific vs general inference engines debate is the right question, instead exploring if 
+different primatives can help design a systel that utilizes model-specific optimizations with general purpose engine!
+This comes down to, as we'll see, deeper hardware control!
+
+We find that generally in Swiss, this better abstraction allows us to maximize efficiency in weird workloads mlx just wasn't designed for!
 
 One of the major drives was model specific allows us to define model custom optimizations, with carbon, much of that
 is still possible, with viewing the gpu in a algebraically way. With this, general engines remain maintainable and still
